@@ -1,39 +1,109 @@
+import fs from 'fs';
 import inquirer from 'inquirer';
-import fs from "fs/promises";
 
+const createREADME = (answers) => {
+    const { title, description, installation, usage, license, contributing, tests, github } = answers;
 
-let { description, last_name } = await inquirer
+    let licenseInfo;
+    if (license === 'Apache') {
+        licenseInfo =
+            `[http://www.apache.org/licenses/](http://www.apache.org/licenses/)`
+    }
+    else if (license === 'MIT') {
+        licenseInfo =
+            `[https://choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/)`
+    }
+    else if (license === "GNU") {
+        licenseInfo =
+            `[https://fsf.org/](https://fsf.org/)`
+    }
+    else {
+        licenseInfo = `No license selected`
+    }
+    return `
+# ${title}
+
+![${license}](https://img.shields.io/badge/license-${license}-brightgreen)
+
+## Description
+${description}
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+## License
+${licenseInfo}
+
+## Contributing
+${contributing}
+
+## Tests
+${tests}
+
+## Questions
+This application is on GitHub at [${github}](https://github.com/${github}/).
+  `;
+};
+
+inquirer
     .prompt([
-        /* Pass your questions in here */
+        {
+            type: 'input',
+            name: 'title',
+            message: 'What is the title of your application?',
+        },
         {
             type: 'input',
             name: 'description',
-            message: "Write a description of your project",
+            message: 'Give a brief description of your application:',
         },
         {
             type: 'input',
-            name: 'last_name',
-            message: "What's your last name",
-            default() {
-                return 'Doe';
-                type: 'input',
-                    name: 'last_name',
-                        message: "What's your last name",
-                default() {
-                return 'Doe';
-            },
+            name: 'installation',
+            message: 'Provide installation instructions:',
         },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'Provide instructions for using the application:',
+        },
+        {
+            type: 'list',
+            name: 'license',
+            message: 'Provide licensing information:',
+            choices: ['MIT', 'GNU', 'Apache', 'None']
+        },
+        {
+            type: 'input',
+            name: 'contributing',
+            message: 'Provide contributing guidelines for your project:',
+        },
+        {
+            type: 'input',
+            name: 'tests',
+            message: 'Provide testing instructions for your project:',
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'What is your GitHub username?',
         },
     ])
-/* Elements in a readme: The title of the project, Description, Table of Contents, Installation, Usage, License, Contributing, Tests, Questions        */
+    .then((answers) => {
+        const readMeFile = createREADME(answers);
 
-
-let readmeText = `# Project Description
-${description}
-## The second largest heading
-
-###### The smallest heading`
-
-fs.writeFile("README,md", readmeText)
-console.log(first_name, last_name);
-
+        fs.writeFile('README2.md', readMeFile, (err) =>
+            err ? console.error(err) : console.log('README2.md generated successfully!')
+        );
+    });
