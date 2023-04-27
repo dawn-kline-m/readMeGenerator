@@ -1,10 +1,10 @@
 
-# Title example
+# Title Example
 
 ![GNU](https://img.shields.io/badge/license-GNU-brightgreen)
 
 ## Description
-Description example will go here ...
+Description will go here ...
 
 ## Table of Contents
 - [Installation](#installation)
@@ -30,5 +30,5 @@ Contributing guidelines will go here ...
 Testing instructions will go here ...
 
 ## Questions
-This application is on GitHub at https://github.com/Dawn-Kline-M\/readMeGenerator
+This application is on GitHub at https://github.com/Dawn-Kline-M/readMeGenerator
   
