@@ -1,10 +1,10 @@
 
-# Sdfasld;f
+# Title example
 
-![MIT](https://img.shields.io/badge/license-MIT-brightgreen)
+![GNU](https://img.shields.io/badge/license-GNU-brightgreen)
 
 ## Description
-sadfasdf
+Description example will go here ...
 
 ## Table of Contents
 - [Installation](#installation)
@@ -15,20 +15,20 @@ sadfasdf
 - [Questions](#questions)
 
 ## Installation
-asdfasdfaadasdSdfasld;f
+Installation instructions will go here ...
 
 ## Usage
-sdf
+Instructions for using the application will go here ...
 
 ## License
-[https://choosealicense.com/licenses/mit/](https://choosealicense.com/licenses/mit/)
+[https://fsf.org/](https://fsf.org/)
 
 ## Contributing
-
+Contributing guidelines will go here ...
 
 ## Tests
-
+Testing instructions will go here ...
 
 ## Questions
-This application is on GitHub at [](https://github.com//).
+This application is on GitHub at https://github.com/Dawn-Kline-M\/readMeGenerator
   
